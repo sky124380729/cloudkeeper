@@ -1,0 +1,24 @@
+@mixin flex($justify:center,$align:center) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin height($px) {
+    height: $px;
+    line-height: $px;
+}
+
+@mixin container() {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
