@@ -1,6 +1,6 @@
 <template>
     <div class="hiring">
-        <h3>人才招聘</h3>
+        <h3>{{ $t('hiring.title') }}</h3>
         <div class="jobs">
             <ul>
                 <li>
