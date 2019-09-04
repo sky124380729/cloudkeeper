@@ -18,11 +18,41 @@
 </template>
 
 <script>
+import markerIcon from '../assets/imgs/marker.png'
 export default {
     name: 'ContactUs',
     layout: 'content',
     data() {
         return {}
+    },
+    mounted() {
+        this.initMap()
+    },
+    methods: {
+        initMap() {
+            const Lng = 120.7223438842
+            const Lat = 31.3204493327
+            /* global AMap */
+            const map = new AMap.Map('map', {
+                resizeEnable: true,
+                center: [Lng, Lat],
+                zoom: 14,
+                viewMode: '3D'
+            })
+            const icon = new AMap.Icon({
+                image: markerIcon, // Icon的图像
+                imageOffset: new AMap.Pixel(0, 0), // 图像相对展示区域的偏移量，适于雪碧图等
+                imageSize: new AMap.Size(40, 40) // 根据所设置的大小拉伸或压缩图片
+            })
+            const marker = new AMap.Marker({
+                position: new AMap.LngLat(Lng, Lat),
+                offset: new AMap.Pixel(-10, -10),
+                icon, // 添加 Icon 实例
+                title: '苏州嘉展科技有限公司',
+                zoom: 13
+            })
+            map.add(marker)
+        }
     }
 }
 </script>
@@ -49,6 +79,7 @@ export default {
             height: 200px;
         }
         .tips {
+            margin-left: 40px;
             dt {
                 font-size: 18px;
                 font-weight: bold;
