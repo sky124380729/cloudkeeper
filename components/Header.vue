@@ -58,12 +58,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '~css/mixins';
+@import '~css/var';
 .header-box {
     position: fixed;
     width: 100%;
     height: 100px;
     top: 0;
-    background-color: #0091ff;
+    z-index: 99;
+    background-color: $-color--blue;
     &.isHomePage {
         background-color: transparent;
     }

@@ -6,7 +6,9 @@
                 <div class="container">
                     <Sidebar />
                     <div class="main">
-                        <nuxt />
+                        <transition name="page">
+                            <nuxt />
+                        </transition>
                     </div>
                 </div>
             </div>
