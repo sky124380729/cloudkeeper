@@ -45,7 +45,7 @@ export default {
 .sidebar {
     width: 174px;
     text-align: right;
-    margin-top: 44px;
+    margin-top: 30px;
     border-top: 1px solid #e6eaf2;
     &__item {
         display: block;
