@@ -7,7 +7,7 @@
             </div>
             <div class="header__right">
                 <div class="links">
-                    <nuxt-link v-for="i in links" :key="i.link" :to="i.link" class="link">{{ $t(i.title) }}</nuxt-link>
+                    <nuxt-link v-for="i in links" :key="i.link" :to="i.link" class="link" :class="{ 'link--active': $route.path === i.link }">{{ $t(i.title) }}</nuxt-link>
                 </div>
                 <Internationalize />
             </div>
@@ -22,12 +22,6 @@ export default {
     components: {
         Internationalize
     },
-    props: {
-        bgColor: {
-            type: String,
-            default: '#0091FF'
-        }
-    },
     data() {
         return {
             links: [
@@ -37,19 +31,19 @@ export default {
                 },
                 {
                     title: 'common.news',
-                    link: '/introduction2'
+                    link: '/news'
                 },
                 {
                     title: 'common.productBrief',
-                    link: '/introduction3'
+                    link: '/productBrief'
                 },
                 {
                     title: 'common.hiring',
-                    link: '/introduction4'
+                    link: '/hiring'
                 },
                 {
                     title: 'common.contactUs',
-                    link: '/introduction5'
+                    link: '/contactUs'
                 }
             ]
         }

@@ -1,5 +1,5 @@
 <template>
     <div class="page">
-        公司简介
+        人才招聘
     </div>
 </template>

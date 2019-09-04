@@ -1,5 +1,5 @@
 <template>
     <div class="page">
-        公司简介
+        新闻中心
     </div>
 </template>

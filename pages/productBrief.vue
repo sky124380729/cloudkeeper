@@ -1,5 +1,5 @@
 <template>
     <div class="page">
-        公司简介
+        产品简介
     </div>
 </template>

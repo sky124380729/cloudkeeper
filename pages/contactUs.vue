@@ -1,5 +1,5 @@
 <template>
     <div class="page">
-        公司简介
+        联系我们
     </div>
 </template>
