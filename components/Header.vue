@@ -1,8 +1,8 @@
 <template>
-    <div class="header-box" :style="{ backgroundColor: bgColor }">
+    <div class="header-box" :class="{ isHomePage }">
         <div class="header">
             <div class="header__left">
-                <h1 class="logo">嘉展科技</h1>
+                <nuxt-link to="/"><h1 class="logo">嘉展科技</h1></nuxt-link>
                 <h2 class="title">{{ $t('header.title') }}</h2>
             </div>
             <div class="header__right">
@@ -53,6 +53,11 @@ export default {
                 }
             ]
         }
+    },
+    computed: {
+        isHomePage() {
+            return this.$route.name === 'index'
+        }
     }
 }
 </script>
@@ -60,7 +65,14 @@ export default {
 <style lang="scss" scoped>
 @import '~css/mixins';
 .header-box {
+    position: fixed;
+    width: 100%;
     height: 100px;
+    top: 0;
+    background-color: #0091ff;
+    &.isHomePage {
+        background-color: transparent;
+    }
 }
 .header {
     @include container;
