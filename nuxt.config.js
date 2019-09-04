@@ -1,6 +1,6 @@
 import path from 'path'
 export default {
-    mode: 'spa',
+    mode: 'universal',
     /*
      ** Headers of the page
      */
@@ -28,7 +28,10 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [],
+    plugins: ['~/plugins/i18n.js'],
+    // router: {
+    //     middleware: 'i18n'
+    // },
     /*
      ** Nuxt.js dev-modules
      */

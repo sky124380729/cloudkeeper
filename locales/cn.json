@@ -1,0 +1,23 @@
+{
+    "common":{
+        "home": "首页",
+        "introduction": "公司简介",
+        "news": "新闻中心",
+        "productBrief": "产品介绍",
+        "hiring": "人才招聘",
+        "contactUs": "联系我们"
+    },
+    "header":{
+        "title":"租赁资产管理服务商"
+    },
+    "footer":{
+        "phone":"电话：400-660-8237",
+        "email":"邮箱：service@cloudkeeper.cn",
+        "addr":"地址：苏州工业园区旺墩路188号建屋大厦908室",
+        "product1":"融资租赁",
+        "product2":"金融租赁",
+        "copyright":"版权所有：苏州嘉展科技有限公司",
+        "record":"备案/许可证号：苏ICP备16035008号",
+        "code":"苏公网安备 32059002002358号"
+    }
+}

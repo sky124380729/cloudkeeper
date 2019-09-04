@@ -5,19 +5,40 @@
                 <div class="footer__left">
                     <img class="sensor" src="~imgs/sensor.png" alt="" />
                     <ul class="info">
-                        <li>电话：400-660-8237</li>
-                        <li>邮箱：service@cloudkeeper.cn</li>
-                        <li>地址：苏州工业园区旺墩路188号建屋大厦908室</li>
+                        <li>{{ $t('footer.phone') }}</li>
+                        <li>{{ $t('footer.email') }}</li>
+                        <li>{{ $t('footer.addr') }}</li>
                     </ul>
                 </div>
-                <div class="footer__right"></div>
+                <div class="footer__right">
+                    <dl>
+                        <dt>{{ $t('common.home') }}</dt>
+                    </dl>
+                    <dl>
+                        <dt>{{ $t('common.introduction') }}</dt>
+                    </dl>
+                    <dl>
+                        <dt>{{ $t('common.news') }}</dt>
+                    </dl>
+                    <dl>
+                        <dt>{{ $t('common.productBrief') }}</dt>
+                        <dd>融资租赁</dd>
+                        <dd>金融租赁</dd>
+                    </dl>
+                    <dl>
+                        <dt>{{ $t('common.hiring') }}</dt>
+                    </dl>
+                    <dl>
+                        <dt>{{ $t('common.contactUs') }}</dt>
+                    </dl>
+                </div>
             </div>
             <div class="footer__bottom">
-                <h2 class="copyright">版权所有：苏州嘉展科技有限公司</h2>
+                <h2 class="copyright">{{ $t('footer.copyright') }}</h2>
                 <p class="emblem">
-                    <span>备案/许可证号：苏ICP备16035008号</span>
+                    <span>{{ $t('footer.record') }}</span>
                     <img src="~imgs/national_emblem.png" alt="" />
-                    <span>苏公网安备 32059002002358号</span>
+                    <span>{{ $t('footer.code') }}</span>
                 </p>
             </div>
         </div>
@@ -35,6 +56,7 @@
         display: flex;
         flex-direction: column;
         &__top {
+            @include flex(space-between);
             padding: 30px;
             border-bottom: 1px solid rgba(238, 238, 238, 0.2);
         }
@@ -62,6 +84,19 @@
             }
         }
         &__right {
+            @include flex(space-between, flex-start);
+            dl {
+                margin-left: 40px;
+            }
+            dt,
+            dd {
+                font-size: 12px;
+                line-height: 18px;
+            }
+            dd {
+                margin-top: 20px;
+                opacity: 0.2;
+            }
         }
     }
 }

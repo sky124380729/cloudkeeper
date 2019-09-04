@@ -1,0 +1,23 @@
+{
+    "common": {
+        "home": "首頁",
+        "introduction": "公司簡介",
+        "news": "新聞中心",
+        "productBrief": "產品介紹",
+        "hiring": "人才招聘",
+        "contactUs": "聯繫我們"
+    },
+    "header": {
+        "title": "租賃資產管理服務商"
+    },
+    "footer": {
+        "phone": "電話：400-660-8237",
+        "email": "郵箱：service@cloudkeeper.cn",
+        "addr": "地址：蘇州工業園區旺墩路188號建屋大廈908室",
+        "product1": "融資租賃",
+        "product2": "金融租赁",
+        "copyright": "版權所有：蘇州嘉展科技有限公司",
+        "record": "備案/許可證號：蘇ICP備16035008號",
+        "code": "蘇公網安備 32059002002358號"
+    }
+}

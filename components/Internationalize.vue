@@ -1,10 +1,27 @@
 <template>
     <div class="internationalize">
-        <span class="font font--link">简</span>
+        <span class="font" :class="{ 'font--link': lan === 'cn' }" @click="setLang('cn')">简</span>
         <span class="split"></span>
-        <span class="font">繁</span>
+        <span class="font" :class="{ 'font--link': lan === 'tw' }" @click="setLang('tw')">繁</span>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'Internationalize',
+    computed: {
+        lan() {
+            return this.$store.state.locale
+        }
+    },
+    methods: {
+        setLang(lan) {
+            this.$store.commit('SET_LANG', lan)
+            this.$i18n.locale = lan
+        }
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 .internationalize {

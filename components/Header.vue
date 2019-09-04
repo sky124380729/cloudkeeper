@@ -3,11 +3,11 @@
         <div class="header">
             <div class="header__left">
                 <h1 class="logo">嘉展科技</h1>
-                <h2 class="title">租赁资产管理服务商</h2>
+                <h2 class="title">{{ $t('header.title') }}</h2>
             </div>
             <div class="header__right">
                 <div class="links">
-                    <nuxt-link v-for="i in links" :key="i.link" :to="i.link" class="link">{{ i.title }}</nuxt-link>
+                    <nuxt-link v-for="i in links" :key="i.link" :to="i.link" class="link">{{ $t(i.title) }}</nuxt-link>
                 </div>
                 <Internationalize />
             </div>
@@ -32,23 +32,23 @@ export default {
         return {
             links: [
                 {
-                    title: '公司简介',
-                    link: '/introduction1'
+                    title: 'common.introduction',
+                    link: '/introduction'
                 },
                 {
-                    title: '新闻中心',
+                    title: 'common.news',
                     link: '/introduction2'
                 },
                 {
-                    title: '产品介绍',
+                    title: 'common.productBrief',
                     link: '/introduction3'
                 },
                 {
-                    title: '人才招聘',
+                    title: 'common.hiring',
                     link: '/introduction4'
                 },
                 {
-                    title: '联系我们',
+                    title: 'common.contactUs',
                     link: '/introduction5'
                 }
             ]
