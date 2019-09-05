@@ -92,8 +92,8 @@ export default {
     &__left {
         @include flex;
         .logo {
-            width: 203px;
-            height: 36px;
+            width: 135.6px;
+            height: 24px;
             background: url('~imgs/logo.png') no-repeat center;
             background-size: cover;
             text-indent: -9999px;
@@ -103,7 +103,8 @@ export default {
             border-left: 1px solid rgba(255, 255, 255, 0.6);
             margin-left: 13px;
             padding-left: 13px;
-            font-size: 22px;
+            font-weight: normal;
+            font-size: 20px;
             color: #fff;
         }
     }

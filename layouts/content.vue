@@ -54,7 +54,7 @@ export default {
     .main {
         flex: 1;
         padding: 30px;
-        min-height: 400px;
+        min-height: 500px;
     }
 }
 </style>

@@ -34,12 +34,12 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <h2 class="copyright">{{ $t('footer.copyright') }}</h2>
-                <p class="emblem">
+                <span class="copyright">{{ $t('footer.copyright') }}</span>
+                <span class="emblem">
                     <span>{{ $t('footer.record') }}</span>
                     <img src="~imgs/national_emblem.png" alt="" />
                     <span>{{ $t('footer.code') }}</span>
-                </p>
+                </span>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
 <style lang="scss" scoped>
 @import '~css/mixins';
 .footer-box {
-    min-height: 280px;
+    min-height: 250px;
     background-color: #000;
     color: #fff;
     .footer {
@@ -57,16 +57,16 @@
         flex-direction: column;
         &__top {
             @include flex(space-between);
-            padding: 30px;
+            padding: 30px 0;
             border-bottom: 1px solid rgba(238, 238, 238, 0.2);
         }
         &__bottom {
-            .copyright,
+            margin-top: 10px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 18px;
             .emblem {
-                font-size: 12px;
-                line-height: 18px;
-                text-align: center;
-                margin: 13px 0;
+                margin-left: 30px;
             }
             .emblem img {
                 vertical-align: bottom;
@@ -96,6 +96,33 @@
             dd {
                 margin-top: 20px;
                 opacity: 0.2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .footer-box {
+        min-height: 170px;
+        .footer {
+            &__top {
+                padding: 10px 0;
+            }
+            &__left {
+                .sensor {
+                    width: 143px;
+                    height: 36px;
+                }
+                .info {
+                    margin-top: 10px;
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+            }
+            &__right {
+                dd {
+                    margin-top: 14px;
+                }
             }
         }
     }
