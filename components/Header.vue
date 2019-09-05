@@ -117,6 +117,7 @@ export default {
             float: left;
             color: #fff;
             margin-right: 30px;
+            font-size: 16px;
             &:hover,
             &--active {
                 &::before {
