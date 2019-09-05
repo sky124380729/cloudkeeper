@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Internationalize from '@/components/Internationalize'
 export default {
     name: 'Header',
@@ -50,6 +51,7 @@ export default {
         }
     },
     computed: {
+        ...mapGetters(['isMobile']),
         isHomePage() {
             return this.$route.name === 'index'
         }

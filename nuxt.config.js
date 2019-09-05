@@ -5,11 +5,14 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: '嘉展科技' || process.env.npm_package_name,
+        title: '物联管家' || process.env.npm_package_name,
         meta: [
             { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { name: 'keywords', content: '嘉展,嘉展科技,嘉展信息科技,租赁资产管理' },
+            {
+                name: 'viewport',
+                content: 'width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no'
+            },
+            { name: 'keywords', content: '嘉展,嘉展科技,嘉展信息科技,租赁资产管理,物联管家' },
             {
                 hid: 'description',
                 name: 'description',
@@ -17,7 +20,10 @@ export default {
             }
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-        script: [{ src: 'https://webapi.amap.com/maps?v=1.4.15&key=03cf2695259312d725dec81426031609', type: 'text/javascript', charset: 'utf-8' }]
+        script: [
+            { src: 'https://webapi.amap.com/maps?v=1.4.15&key=03cf2695259312d725dec81426031609', type: 'text/javascript', charset: 'utf-8' },
+            { src: '/flexible.js', type: 'text/javascript', charset: 'utf-8' }
+        ]
     },
     /*
      ** Customize the progress-bar color
@@ -60,6 +66,11 @@ export default {
         /*
          ** You can extend webpack config here
          */
+        postcss: [
+            require('postcss-px2rem')({
+                remUnit: 75
+            })
+        ],
         extend(config, ctx) {
             // webpack别名配置
             config.resolve.alias.css = path.resolve(__dirname, 'assets/css')
