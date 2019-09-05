@@ -67,7 +67,7 @@ export default {
     z-index: 99;
     background-color: $-color--blue;
     &.isHomePage {
-        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.6);
     }
 }
 .header {
@@ -76,8 +76,8 @@ export default {
     &__left {
         @include flex;
         .logo {
-            width: 226px;
-            height: 40px;
+            width: 203px;
+            height: 36px;
             background: url('~imgs/logo.png') no-repeat center;
             background-size: cover;
             text-indent: -9999px;
@@ -87,7 +87,7 @@ export default {
             border-left: 1px solid rgba(255, 255, 255, 0.6);
             margin-left: 13px;
             padding-left: 13px;
-            font-size: 24px;
+            font-size: 22px;
             color: #fff;
         }
     }
