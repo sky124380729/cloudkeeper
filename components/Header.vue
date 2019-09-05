@@ -1,5 +1,5 @@
 <template>
-    <div class="header-box" :class="{ isHomePage }">
+    <div class="header-box" :class="{ isHomePage, shrink }">
         <div class="header">
             <div class="header__left">
                 <nuxt-link to="/"><h1 class="logo">嘉展科技</h1></nuxt-link>
@@ -24,6 +24,7 @@ export default {
     },
     data() {
         return {
+            shrink: false,
             links: [
                 {
                     title: 'common.introduction',
@@ -52,6 +53,15 @@ export default {
         isHomePage() {
             return this.$route.name === 'index'
         }
+    },
+    mounted() {
+        const vm = this
+        if (process.browser) {
+            window.addEventListener('scroll', function(e) {
+                const top = document.documentElement.scrollTop
+                vm.shrink = top > 0
+            })
+        }
     }
 }
 </script>
@@ -66,8 +76,14 @@ export default {
     top: 0;
     z-index: 99;
     background-color: $-color--blue;
+    transition: all 0.3s;
+    line-height: 80px;
     &.isHomePage {
         background-color: rgba(0, 0, 0, 0.6);
+    }
+    &.shrink {
+        height: 60px;
+        line-height: 60px;
     }
 }
 .header {
@@ -98,7 +114,6 @@ export default {
             float: left;
             color: #fff;
             margin-right: 30px;
-            line-height: 80px;
             &:hover,
             &--active {
                 &::before {
