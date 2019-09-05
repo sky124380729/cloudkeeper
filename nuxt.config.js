@@ -5,10 +5,11 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: '嘉展科技' || process.env.npm_package_name,
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+            { name: 'keywords', content: '嘉展,嘉展科技,嘉展信息科技,租赁资产管理' },
             {
                 hid: 'description',
                 name: 'description',

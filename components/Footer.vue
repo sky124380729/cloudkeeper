@@ -22,8 +22,8 @@
                     </dl>
                     <dl>
                         <dt>{{ $t('common.productBrief') }}</dt>
-                        <dd>融资租赁</dd>
-                        <dd>金融租赁</dd>
+                        <dd>{{ $t('footer.product1') }}</dd>
+                        <dd>{{ $t('footer.product2') }}</dd>
                     </dl>
                     <dl>
                         <dt>{{ $t('common.hiring') }}</dt>
@@ -34,12 +34,12 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <span class="copyright">{{ $t('footer.copyright') }}</span>
-                <span class="emblem">
+                <h2 class="copyright">{{ $t('footer.copyright') }}</h2>
+                <p class="emblem">
                     <span>{{ $t('footer.record') }}</span>
                     <img src="~imgs/national_emblem.png" alt="" />
                     <span>{{ $t('footer.code') }}</span>
-                </span>
+                </p>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
 <style lang="scss" scoped>
 @import '~css/mixins';
 .footer-box {
-    min-height: 250px;
+    min-height: 285px;
     background-color: #000;
     color: #fff;
     .footer {
@@ -61,12 +61,12 @@
             border-bottom: 1px solid rgba(238, 238, 238, 0.2);
         }
         &__bottom {
-            margin-top: 10px;
-            text-align: center;
-            font-size: 12px;
-            line-height: 18px;
+            .copyright,
             .emblem {
-                margin-left: 30px;
+                font-size: 12px;
+                line-height: 18px;
+                text-align: center;
+                margin: 13px 0;
             }
             .emblem img {
                 vertical-align: bottom;
@@ -103,10 +103,22 @@
 
 @media screen and (max-width: 1366px) {
     .footer-box {
-        min-height: 170px;
+        min-height: 190px;
         .footer {
             &__top {
                 padding: 10px 0;
+            }
+            &__bottom {
+                .copyright,
+                .emblem {
+                    font-size: 12px;
+                    line-height: 16px;
+                    text-align: center;
+                    margin: 8px 0;
+                }
+                .emblem img {
+                    vertical-align: bottom;
+                }
             }
             &__left {
                 .sensor {
