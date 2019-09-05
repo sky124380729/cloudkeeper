@@ -1,5 +1,5 @@
 <template>
-    <div class="header-box" :class="{ isHomePage }">
+    <div class="header-box" :class="{ isHomePage, shrink }">
         <div class="header">
             <div class="header__left">
                 <nuxt-link to="/"><h1 class="logo">嘉展科技</h1></nuxt-link>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Internationalize from '@/components/Internationalize'
 export default {
     name: 'Header',
@@ -24,6 +25,7 @@ export default {
     },
     data() {
         return {
+            shrink: false,
             links: [
                 {
                     title: 'common.introduction',
@@ -49,8 +51,18 @@ export default {
         }
     },
     computed: {
+        ...mapGetters(['isMobile']),
         isHomePage() {
             return this.$route.name === 'index'
+        }
+    },
+    mounted() {
+        const vm = this
+        if (process.browser) {
+            window.addEventListener('scroll', function(e) {
+                const top = document.documentElement.scrollTop
+                vm.shrink = top > 0
+            })
         }
     }
 }
@@ -62,12 +74,18 @@ export default {
 .header-box {
     position: fixed;
     width: 100%;
-    height: 100px;
+    height: 80px;
     top: 0;
     z-index: 99;
     background-color: $-color--blue;
+    transition: all 0.3s;
+    line-height: 80px;
     &.isHomePage {
-        background-color: transparent;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    &.shrink {
+        height: 60px;
+        line-height: 60px;
     }
 }
 .header {
@@ -76,8 +94,8 @@ export default {
     &__left {
         @include flex;
         .logo {
-            width: 226px;
-            height: 40px;
+            width: 135.6px;
+            height: 24px;
             background: url('~imgs/logo.png') no-repeat center;
             background-size: cover;
             text-indent: -9999px;
@@ -87,7 +105,8 @@ export default {
             border-left: 1px solid rgba(255, 255, 255, 0.6);
             margin-left: 13px;
             padding-left: 13px;
-            font-size: 24px;
+            font-weight: normal;
+            font-size: 20px;
             color: #fff;
         }
     }
@@ -98,7 +117,6 @@ export default {
             float: left;
             color: #fff;
             margin-right: 30px;
-            line-height: 100px;
             &:hover,
             &--active {
                 &::before {

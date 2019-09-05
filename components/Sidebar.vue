@@ -54,6 +54,8 @@ export default {
         color: #616366;
         border-bottom: 1px solid #e6eaf2;
         padding-right: 9px;
+        border-right: 2px solid #fff;
+        transition: border-color 0.3s;
         &.active {
             font-weight: bold;
             color: $-color--blue;

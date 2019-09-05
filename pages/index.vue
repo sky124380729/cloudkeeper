@@ -16,8 +16,9 @@ export default {}
 <style lang="scss" scoped>
 .homepage {
     height: 100%;
+    min-height: 430px;
     box-sizing: border-box;
-    padding-top: 100px;
+    padding-top: 80px;
     background: url('~imgs/bg.png') no-repeat center;
     background-size: cover;
     text-align: center;
@@ -39,6 +40,14 @@ export default {}
         font-size: 16px;
         line-height: 30px;
         text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .homepage {
+        h2 {
+            margin-top: 40px;
+        }
     }
 }
 </style>

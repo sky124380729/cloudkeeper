@@ -53,7 +53,8 @@ export default {
             })
             marker.on('click', function(e) {
                 window.open(
-                    'https://www.amap.com/search?id=B0FFGCB3HM&city=320571&geoobj=120.427324%7C31.191215%7C120.921709%7C31.413279&query_type=IDQ&query=%E8%8B%8F%E5%B7%9E%E5%98%89%E5%B1%95%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&zoom=12'
+                    'https://www.amap.com/search?id=B0FFGCB3HM&city=320571&geoobj=120.427324%7C31.191215%7C120.921709%7C31.413279' +
+                        '&query_type=IDQ&query=%E8%8B%8F%E5%B7%9E%E5%98%89%E5%B1%95%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&zoom=12'
                 )
             })
             map.add(marker)
@@ -94,6 +95,7 @@ export default {
             dd {
                 color: #616366;
                 line-height: 24px;
+                font-size: 14px;
             }
         }
     }

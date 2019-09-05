@@ -4,7 +4,7 @@
         <div class="news-container">
             <ul>
                 <li v-for="item in newsList" :key="item.id" class="news-list">
-                    <img src="~/imgs/news.png" alt="" />
+                    <img :src="item.img" alt="" />
                     <div class="news-content">
                         <nuxt-link :to="'/news/' + item.id" class="news-link">{{ item.title }}</nuxt-link>
                         <p class="news-tips">
@@ -30,13 +30,15 @@ export default {
                     id: '1',
                     title: '万字长文披露央行《金融科技（FinTech）发展规划》',
                     resource: '21世纪经济报道',
-                    time: '2019-08-23 21:04'
+                    time: '2019-08-23 21:04',
+                    img: require('../../assets/imgs/new_1.png')
                 },
                 {
                     id: '2',
-                    title: '万字长文披露央行《金融科技（FinTech）发展规划》',
-                    resource: '21世纪经济报道',
-                    time: '2019-08-23 21:04'
+                    title: '融资租赁业：直面发展痛点 提升风险防控能力',
+                    resource: '融资租赁专业知识讲座',
+                    time: '2019-08-30 12:04',
+                    img: require('../../assets/imgs/new_default.jpg')
                 }
             ]
         }
@@ -68,7 +70,7 @@ export default {
             margin-left: 20px;
         }
         .news-link {
-            font-size: 20px;
+            font-size: 18px;
             color: #303133;
             line-height: 18px;
             &:hover {
@@ -77,6 +79,7 @@ export default {
         }
         .news-tips {
             color: #919499;
+            font-size: 14px;
             line-height: 18px;
         }
         .split {

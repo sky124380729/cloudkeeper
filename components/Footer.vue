@@ -12,24 +12,36 @@
                 </div>
                 <div class="footer__right">
                     <dl>
-                        <dt>{{ $t('common.home') }}</dt>
+                        <dt>
+                            <nuxt-link to="/">{{ $t('common.home') }}</nuxt-link>
+                        </dt>
                     </dl>
                     <dl>
-                        <dt>{{ $t('common.introduction') }}</dt>
+                        <dt>
+                            <nuxt-link to="/introduction">{{ $t('common.introduction') }}</nuxt-link>
+                        </dt>
                     </dl>
                     <dl>
-                        <dt>{{ $t('common.news') }}</dt>
+                        <dt>
+                            <nuxt-link to="/news">{{ $t('common.news') }}</nuxt-link>
+                        </dt>
                     </dl>
                     <dl>
-                        <dt>{{ $t('common.productBrief') }}</dt>
-                        <dd>融资租赁</dd>
-                        <dd>金融租赁</dd>
+                        <dt>
+                            <nuxt-link to="/productBrief">{{ $t('common.productBrief') }}</nuxt-link>
+                        </dt>
+                        <dd>{{ $t('footer.product1') }}</dd>
+                        <dd>{{ $t('footer.product2') }}</dd>
                     </dl>
                     <dl>
-                        <dt>{{ $t('common.hiring') }}</dt>
+                        <dt>
+                            <nuxt-link to="/hiring">{{ $t('common.hiring') }}</nuxt-link>
+                        </dt>
                     </dl>
                     <dl>
-                        <dt>{{ $t('common.contactUs') }}</dt>
+                        <dt>
+                            <nuxt-link to="/contactUs">{{ $t('common.contactUs') }}</nuxt-link>
+                        </dt>
                     </dl>
                 </div>
             </div>
@@ -48,7 +60,7 @@
 <style lang="scss" scoped>
 @import '~css/mixins';
 .footer-box {
-    min-height: 280px;
+    min-height: 275px;
     background-color: #000;
     color: #fff;
     .footer {
@@ -57,7 +69,7 @@
         flex-direction: column;
         &__top {
             @include flex(space-between);
-            padding: 30px;
+            padding: 30px 0;
             border-bottom: 1px solid rgba(238, 238, 238, 0.2);
         }
         &__bottom {
@@ -78,7 +90,7 @@
                 height: 54px;
             }
             .info {
-                margin-top: 30px;
+                margin-top: 20px;
                 font-size: 12px;
                 line-height: 18px;
             }
@@ -94,8 +106,47 @@
                 line-height: 18px;
             }
             dd {
-                margin-top: 20px;
+                margin-top: 14px;
                 opacity: 0.2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .footer-box {
+        min-height: 190px;
+        .footer {
+            &__top {
+                padding: 10px 0;
+            }
+            &__bottom {
+                .copyright,
+                .emblem {
+                    font-size: 12px;
+                    line-height: 16px;
+                    text-align: center;
+                    margin: 8px 0;
+                }
+                .emblem img {
+                    vertical-align: bottom;
+                }
+            }
+            &__left {
+                .sensor {
+                    width: 143px;
+                    height: 36px;
+                }
+                .info {
+                    margin-top: 10px;
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+            }
+            &__right {
+                dd {
+                    margin-top: 14px;
+                }
             }
         }
     }

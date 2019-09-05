@@ -42,7 +42,7 @@ export default {
     &__page {
         height: 100%;
         box-sizing: border-box;
-        padding-top: 100px;
+        padding-top: 80px;
         background-color: #f2f6fa;
     }
     .footer-box {
@@ -56,6 +56,7 @@ export default {
     .main {
         flex: 1;
         padding: 30px;
+        min-height: 500px;
     }
 }
 </style>

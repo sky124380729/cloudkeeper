@@ -25,6 +25,8 @@ export default {
 
 <style lang="scss" scoped>
 .internationalize {
+    display: flex;
+    align-items: center;
     color: #fff;
     font-size: 0;
     .font {
@@ -36,7 +38,6 @@ export default {
         }
     }
     .split {
-        display: inline-block;
         width: 1px;
         height: 12px;
         margin: 0 8px;
