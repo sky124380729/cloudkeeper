@@ -31,13 +31,14 @@ export default {
                     title: '万字长文披露央行《金融科技（FinTech）发展规划》',
                     resource: '21世纪经济报道',
                     time: '2019-08-23 21:04',
-                    img: require('../../assets/imgs/news.png')
+                    img: require('../../assets/imgs/new_1.png')
                 },
                 {
                     id: '2',
                     title: '融资租赁业：直面发展痛点 提升风险防控能力',
                     resource: '融资租赁专业知识讲座',
-                    time: '2019-08-30 12:04'
+                    time: '2019-08-30 12:04',
+                    img: require('../../assets/imgs/new_default.jpg')
                 }
             ]
         }
