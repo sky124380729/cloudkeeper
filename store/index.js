@@ -2,10 +2,14 @@ import Locale from '~/locales'
 
 export const state = () => ({
     locales: Locale(),
-    locale: Locale()[0]
+    locale: Locale()[0],
+    isLoading: true
 })
 
 export const mutations = {
+    CLOSE_LOADING(state) {
+        state.isLoading = false
+    },
     SET_LANG(state, locale) {
         if (state.locales.includes(locale)) {
             // console.log(locale)

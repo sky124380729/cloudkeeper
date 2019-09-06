@@ -34,17 +34,13 @@
 
     <div v-else class="mobile-footer">
         <div class="top">
-            <img class="sensor" src="~imgs/sensor.png" alt="" />
             <dl>
-                <dt>关于嘉展</dt>
                 <dd v-for="i in links" :key="i.link">
                     <nuxt-link :to="i.link">{{ $t(i.title) }}</nuxt-link>
                 </dd>
-            </dl>
-            <dl>
-                <dt>{{ $t('footer.phone') }}</dt>
-                <dt>{{ $t('footer.email') }}</dt>
-                <dt>{{ $t('footer.addr') }}</dt>
+                <dd>
+                    <Internationalize />
+                </dd>
             </dl>
         </div>
         <div class="bottom">
@@ -59,7 +55,11 @@
 
 <script>
 import isTel from '../assets/isMobile'
+import Internationalize from '@/components/Internationalize'
 export default {
+    components: {
+        Internationalize
+    },
     data() {
         return {
             isMoble: '',
@@ -193,33 +193,26 @@ export default {
     .top {
         background-color: #373d41;
         color: #fff;
-        padding: 20px 40px;
+        padding: 20px 60px;
         .sensor {
             width: 240px;
             height: 60px;
         }
-        dl {
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-        dt {
-            font-size: 28px;
-        }
         dd {
-            float: left;
-            margin-right: 20px;
+            line-height: 60px;
             font-size: 24px;
         }
     }
     .bottom {
         background-color: #31373b;
         color: #fff;
+        padding: 0 60px;
         overflow: hidden;
         h2,
         p {
             font-size: 14px;
             color: #fff;
-            text-align: center;
+            text-align: left;
             margin: 10px 0;
         }
     }

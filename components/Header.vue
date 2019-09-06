@@ -18,13 +18,10 @@
     <div v-else class="mobile-header" :class="{ active: dropdownVisible }">
         <div class="nav-top">
             <nuxt-link to="/"><h1 class="logo">嘉展科技</h1></nuxt-link>
-            <div class="opt-btn">
-                <Internationalize />
-                <a href="javascript:void(0);" @click="dropdownVisible = !dropdownVisible">
-                    <span v-if="dropdownVisible">×</span>
-                    <span v-else>=</span>
-                </a>
-            </div>
+            <a href="javascript:void(0);" @click="dropdownVisible = !dropdownVisible">
+                <span v-if="dropdownVisible">×</span>
+                <span v-else>=</span>
+            </a>
         </div>
         <transition name="dropdown">
             <div class="dropdown" @click="dropdownVisible = false">
@@ -176,17 +173,9 @@ export default {
             background-size: contain;
             text-indent: -9999px;
         }
-        .opt-btn {
-            display: flex;
-            align-items: center;
-            .internationalize {
-                margin-right: 40px;
-            }
-        }
     }
     .dropdown {
         padding: 0 40px;
-        // box-shadow: 0px 10px 4px 100px rgba(0, 0, 0, 0.4);
         border-bottom: 1px solid #e7e7e7;
         &__list {
             display: block;

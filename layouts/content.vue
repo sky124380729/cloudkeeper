@@ -1,5 +1,6 @@
 <template>
     <div class="app-main">
+        <Loading />
         <div class="app-main__content">
             <Header />
             <div class="app-main__page" :style="{ paddingTop: isMoble ? 0 : '80px' }">
@@ -20,12 +21,14 @@ import isTel from '../assets/isMobile'
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 import Sidebar from '~/components/Sidebar.vue'
+import Loading from '~/components/Loading.vue'
 
 export default {
     components: {
         Header,
         Footer,
-        Sidebar
+        Sidebar,
+        Loading
     },
     data() {
         return {

@@ -1,9 +1,56 @@
-html,body {
+html {
     height: 100%;
     font-family: 'PingFang SC','Microsoft YaHei';
     font-size: 16px;
 }
-
+body {
+    height: 100%;
+}
+@media (min-width: 1500px) and (max-width: 1599px) {
+  html {
+    font-size: 450% !important;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1499px) {
+  html {
+    font-size: 430% !important;
+  }
+}
+@media (min-width: 1300px) and (max-width: 1399px) {
+  html {
+    font-size: 410% !important;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1299px) {
+  html {
+    font-size: 390% !important;
+  }
+}
+@media (min-width: 1100px) and (max-width: 1199px) {
+  html {
+    font-size: 370% !important;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1099px) {
+  html {
+    font-size: 350% !important;
+  }
+}
+// @media (min-width: 900px) and (max-width: 999px) {
+//   html {
+//     font-size: 330% !important;
+//   }
+// }
+// @media (min-width: 800px) and (max-width: 899px) {
+//   html {
+//     font-size: 310% !important;
+//   }
+// }
+// @media (max-width: 799px) {
+//   html {
+//     font-size: 300% !important;
+//   }
+// }
 * {
     margin: 0;
     padding: 0;

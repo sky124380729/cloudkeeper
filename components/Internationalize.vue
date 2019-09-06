@@ -1,18 +1,32 @@
 <template>
-    <div class="internationalize">
+    <div v-if="!isMoble" class="internationalize">
         <span class="font" :class="{ 'font--link': lan === 'cn' }" @click="setLang('cn')">简</span>
         <span class="split"></span>
         <span class="font" :class="{ 'font--link': lan === 'tw' }" @click="setLang('tw')">繁</span>
     </div>
+    <div v-else class="mobile-internationalize">
+        <span class="font" :class="{ 'font--link': lan === 'cn' }" @click="setLang('cn')">简体中文</span>
+        <span class="split"></span>
+        <span class="font" :class="{ 'font--link': lan === 'tw' }" @click="setLang('tw')">繁體中文</span>
+    </div>
 </template>
 
 <script>
+import isTel from '../assets/isMobile'
 export default {
     name: 'Internationalize',
+    data() {
+        return {
+            isMoble: ''
+        }
+    },
     computed: {
         lan() {
             return this.$store.state.locale
         }
+    },
+    mounted() {
+        this.isMoble = isTel()
     },
     methods: {
         setLang(lan) {
@@ -24,7 +38,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.internationalize {
+.internationalize,
+.mobile-internationalize {
     display: flex;
     align-items: center;
     color: #fff;
@@ -43,6 +58,15 @@ export default {
         margin: 0 8px;
         background: rgba(242, 246, 250, 1);
         opacity: 0.3;
+    }
+}
+.mobile-internationalize {
+    .font {
+        font-size: 24px;
+    }
+    .split {
+        height: 20px;
+        margin: 0 18px;
     }
 }
 </style>
