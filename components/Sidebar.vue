@@ -47,6 +47,7 @@ export default {
     text-align: right;
     margin-top: 30px;
     border-top: 1px solid #e6eaf2;
+    font-size: 16px;
     &__item {
         display: block;
         height: 44px;
