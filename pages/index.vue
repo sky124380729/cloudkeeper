@@ -54,7 +54,7 @@ export default {}
 @media screen and (max-width: 1200px) {
     .homepage {
         min-height: 800px;
-        background-size: cover;
+        background: url('~imgs/bg_mobile.png') no-repeat center;
         h2 {
             margin-top: 100px;
             font-size: 48px;

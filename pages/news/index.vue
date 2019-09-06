@@ -4,7 +4,9 @@
         <div class="news-container">
             <ul>
                 <li v-for="item in newsList" :key="item.id" class="news-list">
-                    <img class="news-image" :src="item.img" alt="" />
+                    <div class="news-image">
+                        <img :src="item.img" alt="" />
+                    </div>
                     <div class="news-content">
                         <nuxt-link :to="'/news/' + item.id" class="news-link">{{ item.title }}</nuxt-link>
                         <p class="news-tips">
@@ -102,12 +104,12 @@ export default {
         }
         .news-list {
             margin-bottom: 60px;
-            img {
+            .news-image {
                 width: 180px;
                 height: 113px;
             }
             .news-content {
-                margin-left: 40px;
+                margin-left: 35px;
             }
             .news-link {
                 font-size: 24px;
