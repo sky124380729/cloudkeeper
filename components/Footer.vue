@@ -1,5 +1,5 @@
 <template>
-    <div class="footer-box">
+    <div v-if="!isMoble" class="footer-box">
         <div class="footer">
             <div class="footer__top">
                 <div class="footer__left">
@@ -11,37 +11,13 @@
                     </ul>
                 </div>
                 <div class="footer__right">
-                    <dl>
+                    <dl v-for="i in links" :key="i.link" :to="i.link">
                         <dt>
-                            <nuxt-link to="/">{{ $t('common.home') }}</nuxt-link>
+                            <nuxt-link :to="i.link">{{ $t(i.title) }}</nuxt-link>
                         </dt>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <nuxt-link to="/introduction">{{ $t('common.introduction') }}</nuxt-link>
-                        </dt>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <nuxt-link to="/news">{{ $t('common.news') }}</nuxt-link>
-                        </dt>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <nuxt-link to="/productBrief">{{ $t('common.productBrief') }}</nuxt-link>
-                        </dt>
-                        <dd>{{ $t('footer.product1') }}</dd>
-                        <dd>{{ $t('footer.product2') }}</dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <nuxt-link to="/hiring">{{ $t('common.hiring') }}</nuxt-link>
-                        </dt>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <nuxt-link to="/contactUs">{{ $t('common.contactUs') }}</nuxt-link>
-                        </dt>
+                        <template v-if="i.children">
+                            <dd v-for="j in i.children" :key="j">{{ $t(j) }}</dd>
+                        </template>
                     </dl>
                 </div>
             </div>
@@ -55,7 +31,68 @@
             </div>
         </div>
     </div>
+
+    <div v-else class="mobile-footer">
+        <div class="top">
+            <img class="sensor" src="~imgs/sensor.png" alt="" />
+            <dl>
+                <dt>关于嘉展</dt>
+                <dd v-for="i in links" :key="i.link">
+                    <nuxt-link :to="i.link">{{ $t(i.title) }}</nuxt-link>
+                </dd>
+            </dl>
+            <dl>
+                <dt>{{ $t('footer.phone') }}</dt>
+                <dt>{{ $t('footer.email') }}</dt>
+                <dt>{{ $t('footer.addr') }}</dt>
+            </dl>
+        </div>
+        <div class="bottom">
+            <h2 class="copyright">{{ $t('footer.copyright') }}</h2>
+            <p class="emblem">
+                <span>{{ $t('footer.record') }}</span>
+                <span>{{ $t('footer.code') }}</span>
+            </p>
+        </div>
+    </div>
 </template>
+
+<script>
+import isTel from '../assets/isMobile'
+export default {
+    data() {
+        return {
+            isMoble: '',
+            links: [
+                {
+                    title: 'common.introduction',
+                    link: '/introduction'
+                },
+                {
+                    title: 'common.news',
+                    link: '/news'
+                },
+                {
+                    title: 'common.productBrief',
+                    link: '/productBrief',
+                    children: ['footer.product1', 'footer.product2']
+                },
+                {
+                    title: 'common.hiring',
+                    link: '/hiring'
+                },
+                {
+                    title: 'common.contactUs',
+                    link: '/contactUs'
+                }
+            ]
+        }
+    },
+    mounted() {
+        this.isMoble = isTel()
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '~css/mixins';
@@ -148,6 +185,42 @@
                     margin-top: 14px;
                 }
             }
+        }
+    }
+}
+
+.mobile-footer {
+    .top {
+        background-color: #373d41;
+        color: #fff;
+        padding: 20px 40px;
+        .sensor {
+            width: 240px;
+            height: 60px;
+        }
+        dl {
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        dt {
+            font-size: 28px;
+        }
+        dd {
+            float: left;
+            margin-right: 20px;
+            font-size: 24px;
+        }
+    }
+    .bottom {
+        background-color: #31373b;
+        color: #fff;
+        overflow: hidden;
+        h2,
+        p {
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            margin: 10px 0;
         }
     }
 }

@@ -1,6 +1,7 @@
 <template>
-    <div class="header-box" :class="{ isHomePage, shrink }">
-        <div class="header">
+    <!-- PC端 -->
+    <div v-if="!isMobile" class="header-box" :class="{ isHomePage, shrink }">
+        <div class="header container">
             <div class="header__left">
                 <nuxt-link to="/"><h1 class="logo">嘉展科技</h1></nuxt-link>
                 <h2 class="title">{{ $t('header.title') }}</h2>
@@ -13,10 +14,30 @@
             </div>
         </div>
     </div>
+    <!-- 移动端 -->
+    <div v-else class="mobile-header" :class="{ active: dropdownVisible }">
+        <div class="nav-top">
+            <nuxt-link to="/"><h1 class="logo">嘉展科技</h1></nuxt-link>
+            <div class="opt-btn">
+                <Internationalize />
+                <a href="javascript:void(0);" @click="dropdownVisible = !dropdownVisible">
+                    <span v-if="dropdownVisible">×</span>
+                    <span v-else>=</span>
+                </a>
+            </div>
+        </div>
+        <transition name="dropdown">
+            <div class="dropdown" @click="dropdownVisible = false">
+                <nuxt-link v-for="i in links" :key="i.link" :to="i.link" class="dropdown__list" :class="{ 'dropdown__list--active': $route.path === i.link }">{{
+                    $t(i.title)
+                }}</nuxt-link>
+            </div>
+        </transition>
+    </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import isTel from '../assets/isMobile'
 import Internationalize from '@/components/Internationalize'
 export default {
     name: 'Header',
@@ -25,7 +46,9 @@ export default {
     },
     data() {
         return {
+            isMobile: '',
             shrink: false,
+            dropdownVisible: false,
             links: [
                 {
                     title: 'common.introduction',
@@ -51,7 +74,6 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['isMobile']),
         isHomePage() {
             return this.$route.name === 'index'
         }
@@ -64,6 +86,7 @@ export default {
                 vm.shrink = top > 0
             })
         }
+        this.isMobile = isTel()
     }
 }
 </script>
@@ -87,47 +110,90 @@ export default {
         height: 60px;
         line-height: 60px;
     }
-}
-.header {
-    @include container;
-    @include flex(space-between);
-    &__left {
-        @include flex;
-        .logo {
-            width: 135.6px;
-            height: 24px;
-            background: url('~imgs/logo.png') no-repeat center;
-            background-size: cover;
-            text-indent: -9999px;
+    .header {
+        @include flex(space-between);
+        &__left {
+            @include flex;
+            .logo {
+                width: 135.6px;
+                height: 24px;
+                background: url('~imgs/logo.png') no-repeat center;
+                background-size: cover;
+                text-indent: -9999px;
+            }
+            .title {
+                @include height(35px);
+                border-left: 1px solid rgba(255, 255, 255, 0.6);
+                margin-left: 13px;
+                padding-left: 13px;
+                font-weight: normal;
+                font-size: 20px;
+                color: #fff;
+            }
         }
-        .title {
-            @include height(35px);
-            border-left: 1px solid rgba(255, 255, 255, 0.6);
-            margin-left: 13px;
-            padding-left: 13px;
-            font-weight: normal;
-            font-size: 20px;
-            color: #fff;
-        }
-    }
-    &__right {
-        @include flex;
-        .link {
-            position: relative;
-            float: left;
-            color: #fff;
-            margin-right: 30px;
-            &:hover,
-            &--active {
-                &::before {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 4px;
-                    background-color: #fff;
-                    top: 0;
+        &__right {
+            @include flex;
+            .link {
+                position: relative;
+                float: left;
+                color: #fff;
+                margin-right: 30px;
+                font-size: 16px;
+                &:hover,
+                &--active {
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 4px;
+                        background-color: #fff;
+                        top: 0;
+                    }
                 }
             }
+        }
+    }
+}
+
+.mobile-header {
+    height: 96px;
+    overflow: hidden;
+    transition: height 0.3s;
+    &.active {
+        height: 498px;
+    }
+    .nav-top {
+        height: 96px;
+        @include flex(space-between);
+        padding: 0 40px;
+        background-color: $-color--blue;
+        color: #fff;
+        font-size: 36px;
+        .logo {
+            width: 240px;
+            height: 80px;
+            background: url('~imgs/logo.png') no-repeat center;
+            background-size: contain;
+            text-indent: -9999px;
+        }
+        .opt-btn {
+            display: flex;
+            align-items: center;
+            .internationalize {
+                margin-right: 40px;
+            }
+        }
+    }
+    .dropdown {
+        padding: 0 40px;
+        // box-shadow: 0px 10px 4px 100px rgba(0, 0, 0, 0.4);
+        border-bottom: 1px solid #e7e7e7;
+        &__list {
+            display: block;
+            height: 80px;
+            line-height: 80px;
+            background-color: #fff;
+            font-size: 24px;
         }
     }
 }

@@ -2,9 +2,9 @@
     <div class="app-main">
         <div class="app-main__content">
             <Header />
-            <div class="app-main__page">
+            <div class="app-main__page" :style="{ paddingTop: isMoble ? 0 : '80px' }">
                 <div class="container">
-                    <Sidebar />
+                    <Sidebar v-if="!isMoble" />
                     <div class="main">
                         <nuxt />
                     </div>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import isTel from '../assets/isMobile'
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 import Sidebar from '~/components/Sidebar.vue'
@@ -25,6 +26,14 @@ export default {
         Header,
         Footer,
         Sidebar
+    },
+    data() {
+        return {
+            isMoble: ''
+        }
+    },
+    mounted() {
+        this.isMoble = isTel()
     }
 }
 </script>
@@ -40,7 +49,6 @@ export default {
     &__page {
         height: 100%;
         box-sizing: border-box;
-        padding-top: 80px;
         background-color: #f2f6fa;
     }
     .footer-box {
@@ -52,6 +60,7 @@ export default {
         display: flex;
     }
     .main {
+        width: 100%;
         flex: 1;
         padding: 30px;
         min-height: 500px;

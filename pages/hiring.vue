@@ -235,6 +235,7 @@ export default {
             .job {
                 font-weight: bold;
                 color: $-color--blue;
+                font-size: 16px;
                 line-height: 30px;
             }
             dl {

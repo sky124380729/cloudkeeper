@@ -68,12 +68,29 @@ pre {
     margin: 0 auto;
 }
 
+@media screen and (max-width:1200px) {
+    .container {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
+    }
+}
+
 // 路由切换动效
 .page-enter-active, .page-leave-active {
     transition: opacity .3s;
 }
 .page-enter, .page-leave-active {
     opacity: 0;
+}
+
+.dropdown-enter-active, .dropdown-leave-active {
+    height: 100%;
+    transition: all .3;
+}
+.page-enter, .page-leave-active {
+    height: 0;
 }
 
 // /*滚动条的宽度*/

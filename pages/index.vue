@@ -50,4 +50,10 @@ export default {}
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .homepage {
+        // background-size: cover;
+    }
+}
 </style>

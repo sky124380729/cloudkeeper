@@ -99,6 +99,7 @@ export default {
                 text-align: center;
                 height: 60px;
                 color: #616366;
+                font-size: 18px;
                 border-top: 1px solid #dadee6;
                 &.yes {
                     background: url('~imgs/hook_blue.png') no-repeat center;
@@ -113,6 +114,22 @@ export default {
     .deployment {
         display: block;
         margin: 40px auto 60px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .productBrief {
+        .deployment {
+            width: 100%;
+        }
+    }
+    table {
+        tbody {
+            td.yes,
+            td.no {
+                background-size: 26px !important;
+            }
+        }
     }
 }
 </style>

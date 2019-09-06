@@ -403,4 +403,12 @@ export default {
         color: #919499;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .new-detail {
+        img {
+            width: 100%;
+        }
+    }
+}
 </style>

@@ -38,4 +38,12 @@ export default {
         margin: 30px auto;
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .introduction {
+        .ceremony {
+            width: 100%;
+        }
+    }
+}
 </style>
