@@ -93,4 +93,32 @@ export default {
         }
     }
 }
+@media screen and (max-width: 1200px) {
+    .news {
+        h3 {
+            font-size: 36px;
+            line-height: 36px;
+            margin-bottom: 40px;
+        }
+        .news-list {
+            margin-bottom: 60px;
+            img {
+                width: 180px;
+                height: 113px;
+            }
+            .news-content {
+                margin-left: 40px;
+            }
+            .news-link {
+                font-size: 24px;
+                line-height: 40px;
+                word-break: break-all;
+            }
+            .news-tips {
+                font-size: 18px;
+                line-height: 18px;
+            }
+        }
+    }
+}
 </style>

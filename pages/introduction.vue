@@ -46,4 +46,21 @@ export default {
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .introduction {
+        h3 {
+            font-size: 36px;
+            line-height: 36px;
+        }
+        .content {
+            font-size: 28px;
+            color: rgba(97, 99, 102, 1);
+            margin-top: 52px;
+        }
+        .ceremony {
+            margin: 60px auto;
+        }
+    }
+}
 </style>

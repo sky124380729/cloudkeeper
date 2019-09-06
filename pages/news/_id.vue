@@ -406,8 +406,38 @@ export default {
 
 @media screen and (max-width: 1200px) {
     .new-detail {
+        h3 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        h4 {
+            font-size: 36px;
+        }
+        p.time {
+            margin: 40px 0;
+            font-size: 20px;
+        }
+        p.subheading {
+            line-height: 32px;
+            margin-bottom: 20px;
+        }
+        p.subtitle {
+            font-size: 26px;
+            line-height: 32px;
+            margin-bottom: 20px;
+        }
+        p.c,
+        p.h {
+            font-size: 26px;
+            line-height: 32px;
+            margin-bottom: 40px;
+        }
         img {
             width: 100%;
+        }
+        .resource {
+            margin: 50px 0;
+            font-size: 18px;
         }
     }
 }

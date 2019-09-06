@@ -165,7 +165,7 @@ export default {
         padding: 0 40px;
         background-color: $-color--blue;
         color: #fff;
-        font-size: 36px;
+        font-size: 48px;
         .logo {
             width: 240px;
             height: 80px;

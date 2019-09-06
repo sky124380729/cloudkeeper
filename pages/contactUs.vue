@@ -100,4 +100,34 @@ export default {
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .contactUs {
+        h3 {
+            font-size: 36px;
+            line-height: 36px;
+        }
+        .handshake {
+            margin: 60px auto;
+        }
+        .info {
+            #map {
+                width: 420px;
+                height: 260px;
+            }
+            .tips {
+                margin-left: 40px;
+                dt {
+                    font-size: 28px;
+                    margin-bottom: 10px;
+                }
+                dd {
+                    line-height: 38px;
+                    font-size: 22px;
+                    word-break: break-all;
+                }
+            }
+        }
+    }
+}
 </style>

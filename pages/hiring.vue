@@ -254,4 +254,33 @@ export default {
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .hiring {
+        h3 {
+            font-size: 36px;
+            line-height: 36px;
+            margin-bottom: 30px;
+        }
+        .jobs {
+            li {
+                margin-bottom: 50px;
+                .job {
+                    font-size: 32px;
+                    line-height: 58px;
+                }
+                dl {
+                    dt {
+                        font-size: 26px;
+                        line-height: 38px;
+                    }
+                    dd {
+                        font-size: 26px;
+                        line-height: 38px;
+                    }
+                }
+            }
+        }
+    }
+}
 </style>

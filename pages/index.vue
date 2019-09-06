@@ -18,7 +18,7 @@ export default {}
     height: 100%;
     min-height: 430px;
     box-sizing: border-box;
-    padding-top: 80px;
+    padding: 80px 40px 0;
     background: url('~imgs/bg.png') no-repeat center;
     background-size: cover;
     text-align: center;
@@ -53,7 +53,21 @@ export default {}
 
 @media screen and (max-width: 1200px) {
     .homepage {
-        // background-size: cover;
+        min-height: 800px;
+        background-size: cover;
+        h2 {
+            margin-top: 100px;
+            font-size: 48px;
+        }
+        p.title {
+            margin: 40px 0 80px;
+            font-size: 34px;
+        }
+        p.content {
+            width: 100%;
+            font-size: 28px;
+            line-height: 48px;
+        }
     }
 }
 </style>

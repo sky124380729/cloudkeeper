@@ -119,15 +119,32 @@ export default {
 
 @media screen and (max-width: 1200px) {
     .productBrief {
+        h3 {
+            font-size: 36px;
+            line-height: 36px;
+        }
         .deployment {
             width: 100%;
         }
-    }
-    table {
-        tbody {
-            td.yes,
-            td.no {
-                background-size: 26px !important;
+        table {
+            margin: 40px 0;
+            thead {
+                th {
+                    font-size: 28px;
+                    &.content {
+                        width: 600px;
+                        font-size: 26px;
+                    }
+                }
+            }
+            tbody {
+                td {
+                    font-size: 26px;
+                }
+                td.yes,
+                td.no {
+                    background-size: 26px !important;
+                }
             }
         }
     }
