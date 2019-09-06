@@ -4,7 +4,7 @@
         <div class="news-container">
             <ul>
                 <li v-for="item in newsList" :key="item.id" class="news-list">
-                    <img :src="item.img" alt="" />
+                    <img class="news-image" :src="item.img" alt="" />
                     <div class="news-content">
                         <nuxt-link :to="'/news/' + item.id" class="news-link">{{ item.title }}</nuxt-link>
                         <p class="news-tips">
