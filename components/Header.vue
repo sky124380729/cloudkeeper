@@ -18,18 +18,14 @@
     <div v-else class="mobile-header" :class="{ active: dropdownVisible }">
         <div class="nav-top">
             <nuxt-link to="/"><h1 class="logo">嘉展科技</h1></nuxt-link>
-            <a href="javascript:void(0);" @click="dropdownVisible = !dropdownVisible">
-                <span v-if="dropdownVisible">×</span>
-                <span v-else>=</span>
-            </a>
+            <img v-if="dropdownVisible" class="opt" src="~imgs/close.png" alt="" @click="dropdownVisible = false" />
+            <img v-else class="opt" src="~imgs/open.png" alt="" @click="dropdownVisible = true" />
         </div>
-        <transition name="dropdown">
-            <div class="dropdown" @click="dropdownVisible = false">
-                <nuxt-link v-for="i in links" :key="i.link" :to="i.link" class="dropdown__list" :class="{ 'dropdown__list--active': $route.path === i.link }">{{
-                    $t(i.title)
-                }}</nuxt-link>
-            </div>
-        </transition>
+        <div class="dropdown" @click="dropdownVisible = false">
+            <nuxt-link v-for="i in links" :key="i.link" :to="i.link" class="dropdown__list" :class="{ 'dropdown__list--active': $route.path === i.link }">{{
+                $t(i.title)
+            }}</nuxt-link>
+        </div>
     </div>
 </template>
 
@@ -73,6 +69,20 @@ export default {
     computed: {
         isHomePage() {
             return this.$route.name === 'index'
+        }
+    },
+    watch: {
+        dropdownVisible(val) {
+            // if (!process.browser) return
+            // const vm = this
+            // const listen = function() {
+            //     vm.dropdownVisible = false
+            // }
+            // if (val) {
+            //     document.addEventListener('click', listen)
+            // } else {
+            //     document.removeEventListener('click', listen)
+            // }
         }
     },
     mounted() {
@@ -173,6 +183,10 @@ export default {
             background-size: contain;
             text-indent: -9999px;
         }
+        .opt {
+            width: 30px;
+            height: 30px;
+        }
     }
     .dropdown {
         padding: 0 40px;
@@ -182,7 +196,7 @@ export default {
             height: 80px;
             line-height: 80px;
             background-color: #fff;
-            font-size: 24px;
+            font-size: 30px;
         }
     }
 }

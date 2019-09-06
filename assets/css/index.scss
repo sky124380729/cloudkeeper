@@ -131,15 +131,6 @@ pre {
 .page-enter, .page-leave-active {
     opacity: 0;
 }
-
-.dropdown-enter-active, .dropdown-leave-active {
-    height: 100%;
-    transition: all .3;
-}
-.page-enter, .page-leave-active {
-    height: 0;
-}
-
 // /*滚动条的宽度*/
 // ::-webkit-scrollbar {
 //     width:9px;

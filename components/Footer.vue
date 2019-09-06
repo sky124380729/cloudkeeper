@@ -34,22 +34,16 @@
 
     <div v-else class="mobile-footer">
         <div class="top">
-            <dl>
-                <dd v-for="i in links" :key="i.link">
-                    <nuxt-link :to="i.link">{{ $t(i.title) }}</nuxt-link>
-                </dd>
-                <dd>
-                    <Internationalize />
-                </dd>
-            </dl>
-        </div>
-        <div class="bottom">
+            <Internationalize />
             <h2 class="copyright">{{ $t('footer.copyright') }}</h2>
             <p class="emblem">
                 <span>{{ $t('footer.record') }}</span>
                 <span>{{ $t('footer.code') }}</span>
             </p>
         </div>
+        <a v-if="goTopVisible" class="bottom" href="javascript:void(0);" @click="goTop">
+            回到顶部
+        </a>
     </div>
 </template>
 
@@ -63,6 +57,7 @@ export default {
     data() {
         return {
             isMoble: '',
+            goTopVisible: false,
             links: [
                 {
                     title: 'common.introduction',
@@ -88,8 +83,32 @@ export default {
             ]
         }
     },
+    watch: {
+        $route: {
+            handler() {
+                this.goTopJugle()
+            },
+            immediate: true
+        }
+    },
     mounted() {
         this.isMoble = isTel()
+        this.goTopJugle()
+    },
+    methods: {
+        goTopJugle() {
+            if (process.browser) {
+                this.goTopVisible = document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight)
+            }
+        },
+        goTop() {
+            if (process.browser) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+            }
+        }
     }
 }
 </script>
@@ -190,31 +209,24 @@ export default {
 }
 
 .mobile-footer {
+    color: #fff;
+
     .top {
         background-color: #373d41;
-        color: #fff;
         padding: 20px 60px;
-        .sensor {
-            width: 240px;
-            height: 60px;
-        }
-        dd {
-            line-height: 60px;
-            font-size: 24px;
-        }
-    }
-    .bottom {
-        background-color: #31373b;
-        color: #fff;
-        padding: 0 60px;
-        overflow: hidden;
         h2,
         p {
-            font-size: 14px;
-            color: #fff;
+            font-size: 19px;
             text-align: left;
             margin: 10px 0;
         }
+    }
+    .bottom {
+        display: block;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        background-color: #31373b;
     }
 }
 </style>

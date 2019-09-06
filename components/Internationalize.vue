@@ -61,11 +61,12 @@ export default {
     }
 }
 .mobile-internationalize {
+    margin-bottom: 20px;
     .font {
-        font-size: 24px;
+        font-size: 28px;
     }
     .split {
-        height: 20px;
+        height: 24px;
         margin: 0 18px;
     }
 }

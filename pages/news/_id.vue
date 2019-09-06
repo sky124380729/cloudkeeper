@@ -418,6 +418,7 @@ export default {
             font-size: 20px;
         }
         p.subheading {
+            font-size: 32px;
             line-height: 32px;
             margin-bottom: 20px;
         }
